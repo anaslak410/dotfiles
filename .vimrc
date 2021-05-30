@@ -1,6 +1,6 @@
-"------------
-" Anas' config for the boomer text editor 
-
+"-----------------------------------------
+" Anas' config for the boomer text editor |
+"-----------------------------------------
 
 syntax on 
 set number 
@@ -11,11 +11,18 @@ set incsearch
 set nocp
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
+
 " to make p more intiuitive
 xnoremap p pgvy
 
+" will yank to clipboard 
+set clipboard=unnamedplus
+
+" no more mouse copying line numbers and empty extraneous spaces 
+:se mouse+=a
+
 "------------
-" all plugins should be between #begin and #end 
+" plugins go here + all plugins should be between #begin and #end 
 
 set nocompatible
 call plug#begin('~/.vim/plugged')
@@ -25,15 +32,15 @@ Plug 'nathanaelkane/vim-indent-guides', { 'for': 'html' }
 Plug 'Raimondi/delimitMate'
 Plug 'junegunn/goyo.vim' , { 'for': 'text' }
 Plug 'preservim/nerdtree'
-" Add plugins here
 call plug#end()
 
 
 autocmd VimEnter * silent !echo -ne "\e[2 q"
 
 "------------
-" for inserting a new line without going into insert mode 
+" key mapping go here
 
+" for inserting a new line without going into insert mode 
 nmap oo o<Esc>k
 nmap OO O<Esc>j
 
